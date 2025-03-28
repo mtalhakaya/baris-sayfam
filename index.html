@@ -20,14 +20,14 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
     }
 
     .welcome {
       margin-top: 30px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       padding: 20px;
       border-radius: 20px;
       max-width: 600px;
@@ -99,6 +99,7 @@
       padding: 20px;
       border-radius: 20px;
       box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+      max-width: 600px;
     }
 
     #videoContainer h2 {
@@ -152,20 +153,15 @@
 <body>
 
   <div class="welcome">
-  <h2>Hoş geldin Ezgimmmm 💖</h2>
-  <p>
-    Öncelikle: evet, bu sayfa senin için yapıldı. Ve hayır, aklımdan hiç çıkmadın 🙄<br><br>
-
-    Barışalım mı? Yani... seninle kavga etmek bile güzel çünkü sonunda yine gülümsemene aşık oluyorum.<br><br>
-
-    Belki bir romantik film gibi başlamadık... ama itiraf ediyorum:  
-    <strong>final sahnesinde sadece seninle olmak istiyorum.</strong><br><br>
-
-    Ve evet, “HAYIR” butonunun kaçması tamamen bilinçli 🙃  
-    Çünkü sen zaten “EVET” diyeceksin, ben biliyorum 💌
-  </p>
-</div>
-
+    <h2>Hoş geldin Ezgimmm 💖</h2>
+    <p>
+      Öncelikle: evet, bu sayfa senin için yapıldı. Ve hayır, aklımdan hiç çıkmadın 🙄<br><br>
+      Barışalım mı? Yani... seninle kavga etmek bile güzel çünkü sonunda yine gülümsemene aşık oluyorum.<br><br>
+      Belki bir romantik film gibi başlamadık... ama itiraf ediyorum: <strong>final sahnesinde sadece seninle olmak istiyorum.</strong><br><br>
+      Ve evet, “HAYIR” butonunun kaçması tamamen bilinçli 😏  
+      Çünkü sen zaten “EVET” diyeceksin, ben biliyorum 💌
+    </p>
+  </div>
 
   <h1>Barışalım mı Kalbim 💖</h1>
 
@@ -213,6 +209,11 @@
       videoContainer.style.display = "block";
       yesBtn.style.display = "none";
       noBtn.style.display = "none";
+
+      // 🎯 Video görünür olunca sayfayı oraya kaydır
+      setTimeout(() => {
+        videoContainer.scrollIntoView({ behavior: "smooth" });
+      }, 300);
     });
   </script>
 
