@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Barışalım mı Kalbim 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("biz.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #d63384;
+      margin-top: 40px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    #buttons {
+      position: relative;
+      height: 200px;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 30px;
+    }
+
+    button {
+      font-size: 1.2em;
+      padding: 12px 25px;
+      margin: 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    #yesBtn {
+      background-color: #ff5ca2;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background-color: #ff3380;
+      transform: scale(1.05);
+    }
+
+    #noBtn {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+
+    #videoContainer {
+      display: none;
+      margin-top: 40px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+    }
+
+    #videoContainer h2 {
+      color: #e83e8c;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    video {
+      width: 90vw;
+      max-width: 560px;
+      border-radius: 15px;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 8s infinite ease-in;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Barışalım mı Kalbim 💖</h1>
+
+  <div id="buttons">
+    <button id="yesBtn">EVET 💞</button>
+    <button id="noBtn">HAYIR 🙈</button>
+  </div>
+
+  <div id="videoContainer">
+    <h2>Seni her şeyden çok seviyorum 💘</h2>
+    <video controls autoplay playsinline muted loop>
+      <source src="aşkklibi.mp4" type="video/mp4">
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+  </div>
+
+  <!-- Kalpler -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      heart.style.backgroundColor = Math.random() > 0.5 ? "pink" : "#ff69b4";
+      document.body.appendChild(heart);
+    }
+
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const videoContainer = document.getElementById("videoContainer");
+
+    noBtn.addEventListener("mouseover", () => {
+      const container = document.getElementById("buttons");
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      videoContainer.style.display = "block";
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
